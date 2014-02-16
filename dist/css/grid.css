@@ -1,0 +1,184 @@
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h4 {
+  margin-top: 25px;
+}
+.row {
+    background-color: #FCFBF5;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.highlightedblock {
+  background-color: #F0EAD1;
+    padding-right:25px;
+    padding-left:20px;
+    padding-top: 10px;
+    padding-bottom:15px;
+    line-height:normal;
+}
+
+.highlightedblockmanual {
+  background-color: #F0EAD1;
+    padding-right:25px;
+    padding-left:20px;
+    padding-top: 10px;
+    padding-bottom:15px;
+}
+
+.blockquoteindent {
+    padding-right: 5px;
+    padding-left: 15px;
+    padding-top: 0px;
+    padding-bottom:20px;
+    font-size: 12.5pt;
+        color: #555555;
+}
+
+.highlightedblockouter {
+  background-color: #F0EAD1;
+}
+
+.blockpaddingright {
+ padding-right: 12px;
+    padding-left:0px;
+}
+
+.imgborder { 
+   border:1px solid #021a40;
+}
+
+.footer { 
+   background-color:#5C5955;
+    margin-top:0px;
+}
+
+.footer2 { 
+   background-color:#5C5955;
+    margin-top:0px;
+}
+
+.notopmargin {
+margin-top: 0px;
+padding-top: 0px;
+}
+
+.backgroundtransparent {
+    background-color: transparent;
+}
+hr {
+  margin-top: 6px;
+  margin-bottom: 15px;
+}
+
+.caption {
+	  font-size: 12px;
+	  color: #BFC7C4;
+}
+
+.caption a {
+	  font-size: 12px;
+	  color: #7F8F8A;
+	  text-decoration: none;
+
+}
+
+.caption a:hover {
+	  font-size: 12px;
+	  color: #555C5A;
+	  text-decoration: underline;
+
+}
+
+
+.slidingDiv {
+    height:300px;
+    padding:0px;
+    margin-top:10px;
+}
+ 
+.show_hide {
+    display:none;
+}
+
+body {
+	  background-color: #929291;
+	 }
+
+.contenttitle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 20pt;
+    color: #574E46;
+ padding-right: 10px;
+}
+    
+.contentsubtitle {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 17pt;
+    color: #8F8882;
+}
+    
+
+.contenttext {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 13.3pt;
+    line-height: 1.9;
+    color: #81766E;
+    letter-spacing: 0.1pt;
+}
+
+.captiontext {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 11.7pt;
+    line-height: 1.5;
+    color: #926969;
+    padding-top:20px;
+    letter-spacing: 0.1pt;
+    margin-bottom: 50px;
+}
+
+.highlighted {
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #F0EAD1;
+}
+
+
+.captiontexthighlightedblock {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #777777;
+    padding-top:20px;
+    letter-spacing: 0.1pt;
+    margin-bottom: 50px;
+}
+
+
+
+p {
+    padding-top: 0px;
+    padding-right: 10px;
+    padding-left: 0px;
+    padding-bottom: 30px;
+}
+
+
+rownopadding {
+	padding: 0px;
+	background: none;
+}

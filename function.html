@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+    <title>Mark I</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic|Oxygen:400,700,300' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="dist/css/navbar-fixed-top.css" rel="stylesheet">
+        <link href="dist/css/grid.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- FancyBox -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+<link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    
+    
+    <script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+</script>
+
+
+<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(0,0,0,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><span style="font-weight: 400; font-size: 19px">&nbsp;THE &nbsp;</span><span style="font-weight: 700; font-size: 20px">MARK I </span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+            <li><a href="about.html">About</a></li>
+            <li><a href="use.html">Use</a></li>
+            <li><a href="crew.html">Crew</a></li>
+            <li class="active"><a href="function.html">Function</a></li>
+            <li><a href="manual.html">Manual</a></li>
+            <li><a href="language.html">Language</a></li>
+		    <li><a href="futurism.html">Futurism</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+<br>
+      <div class="container">
+
+
+
+<div class="row">
+    <div class="col-md-4"><div class="contenttitle">How did it work?<br><hr></div><br></div>
+    <div class="col-md-8 contenttext">
+        <p>In contrast to other computer projects of the same period, Mark I did not use vacuum tubes: it was an <span style="font-weight: 400; color: #695757;">electromechanical computer</span>. It functioned using mechanical calculational devices (similar to adding machines), and electrical switches, relays, and connectors (similar to those used in telephone exchanges of the era). Preference was given to a technology that could be built easily and quickly from available IBM components.</p>
+        <p>Mark I's pioneering innovation was how it combined its many components to make the first <span style="font-weight: 400; color: #695757;">programmable computer</span>. This meant it could be easily used in a wide variety of problems, including those unforseen at the time of its design. Other computers of the first generation had to be completely re-wired to perform different problems, or were built to solve a single mathematical procedure, such as decoding enemy messages.</p>
+        <p><a class="fancybox-effects-c" rel="functiongallery" href="images/Mark1SchematicSmall.jpg" title=""><img src="images/Mark1SchematicSmallest.jpg" alt="Click to view full size" class="img-responsive imgborder"/></a><span style="font-weight: 400; font-size: 13px; color: #AAAAAA;">[ <a href="images/Mark1Schematic.jpg" target="_blank">open image in a new tab</a> ]</span></p>
+    <p>The portion of the machine called <span style="font-weight: 400; color: #695757;">Sequence Control</span>, Aiken's invention, was responsible for Mark I s programmable nature. This section read instructions via punched paper tape, similar to that of a player piano. The tape contained a sequence of instructions to be performed on numbers that were registered in the machine's data storage units. These data units were either <span style="font-weight: 400; color: #695757;">constants</span>, entered by switches before running a program, or variable units called <span style="font-weight: 400; color: #695757;">counters</span> which could be added or substracted from.  Every counter was essentially a mechanical adding machine with an address, which could be read and operated on according to instructions on the sequence tape.</p> 
+    <p>Mark I also included <span style="font-weight: 400; color: #695757;">punch card readers</span> as data input, which were the standard method of data processing in the period and IBM's main product at the time.</p>
+        <p>For mathematical operations like multiplication, exponentials and trigonometric functions, Mark I included special mechanical calculation units. These were removed from the machine after it was decommissioned in 1959.</p>
+        <p>One of Mark I's main innovations was the possibility of entering custom mathematical functions on additional units of paper tape readers called <span style="font-weight: 400; color: #695757;">interpolators</span>. Interpolators were similar to the sequence tape readers but read tape encoded with numbers and mathematical functions rather than instructions. </p>
+      <p>The computer's output system consisted of standard IBM <span style="font-weight: 400; color: #695757;">tele-typewriters</span> and card punching machines. </p>
+       <p>One of Mark I's characteristic innovations that made it programmable was its synchronous design. Its mechanical components such as sequence control, interpolators and counters were set in motion by a single drive shaft powered by a motor at a set speed. This guaranteed that the speed of operation was the same throughout the machine so that its different parts could work as a single unit. This speed was three turns or cycles per second (3 Hz).</p>
+        <p>Howard Aiken emphasized the unequalled reliability and precision of calculation of Mark I, even if it was hundreds of times slower than would have been possible with vacuum tubes. Through this sturdy build and precise performance, Mark I was able to work practically uninterrupted for 16 years.</p>
+    </div>
+    </div>
+          
+                    <div class="row">
+          <div class="col-xs-12">&nbsp;</div>
+          </div>
+          
+          
+                  <div class="row footer">
+        <div class="col-md-6" align="center"><a href="http://chsi.harvard.edu" target="_blank"><img src="images/chsilogo.png" class="img-responsive" width="400" height="104"></a><br></div>        
+        <div class="col-md-6" align="center"><a href="http://www.seas.harvard.edu" target="_blank"><img src="images/harvardseaslogo.png" class="img-responsive" width="400" height="104"></a></div>
+         </div>
+              <div class="row footer2">
+        <div class="col-xs-12" align="center"><span style="font-family: 'Source Sans Pro', sans-serif; font-weight: 300; font-size: 13.5pt; color: #dddddd">Collection of Historical Scientific Instruments &nbsp; &nbsp; &copy; President and Fellows of Harvard College</span></div>
+         </div>
+            
+      
+      
+    </div> <!-- /container -->
+<br><br>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

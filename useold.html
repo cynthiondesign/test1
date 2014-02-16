@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+    <title>Mark I</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="dist/css/navbar-fixed-top.css" rel="stylesheet">
+        <link href="dist/css/grid.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- FancyBox -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+<script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+<link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<link rel="stylesheet" href="fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+<script type="text/javascript" src="fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    
+    
+    <script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+</script>
+
+
+<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(0,0,0,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="about.html"><span style="font-weight: 400; font-size: 14px">&nbsp;THE &nbsp;</span><span style="font-weight: 700; font-size: 15px">MARK I </span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right">
+            <li><a href="about.html">About</a></li>
+            <li class="active"><a href="use.html">Use</a></li>
+            <li><a href="crew.html">Crew</a></li>
+            <li><a href="function.html">Function</a></li>
+            <li><a href="manual.html">Manual</a></li>
+            <li><a href="language.html">Language</a></li>
+		    <li><a href="futurism.html">Futurism</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+<br>
+      <div class="container">
+
+
+
+<div class="row">
+<div class="col-sm-12"<span style="font-weight: 400; font-size: 27px">How was the Mark I used?</span><br><hr></div>
+
+</div>
+              <div class="row">
+                  <div class="col-sm-4"><a class="fancybox-effects-c" rel="usegallery" href="images/PopularMechanics1944smaller.jpg" title="<i>Popular Mechanics</i>, October 1944"><img src="images/PopularMechanics1944smaller.jpg" alt="Click to view full size" class="img-responsive imgborder"/><br></a><i>Popular Mechanics</i>, October 1944<br><span style="font-weight: 300; font-size: 13px; color: #AAAAAA;">[ <a href="images/popularmechanics1944.jpg" target="_blank">open image in a new tab</a> ]</span></div>
+        <div class="col-sm-8">Mark I was designed in 1937 by a Harvard graduate student, Howard H. Aiken to solve advanced mathematical physics problems encountered in his research.  Aiken's ambitious proposal envisioned the use of modified commercially available technologies coordinated by a central control system.<br><br>
+Supported by Harvard faculty, Aiken discussed his idea with several manufacturers, eventually finding interest at IBM, a company that specialized in calculating machines and punch card systems. Using company components, IBM engineers in Endicott, NY developed the machine's working systems and directed its construction over five years. During that period America entered World War II, so when it was finally delivered to Harvard in 1944 Mark I was operated by the U.S. Navy Bureau of Ships for military purposes, solving mathematical problems that until then required large teams of human &quot;computers.&quot; <br><br>
+Mark I was in operation between 1944 and 1959, at which point sections from each of its components were taken to IBM and the Smithsonian Institution, leaving the smaller version seen here. The original Mark I was about twice the current length.</div>    
+        </div>  
+        <hr>
+        <div class="row">
+                <div class="col-sm-12"><h4>Automatic Calculators, Human Computers</h4><br>Mark I was originally called the &quot;Automatic Sequence Controlled Calculator&quot; by IBM, and often referred to as the &quot;Harvard Calculator&quot; when first installed in Cambridge in 1944. It started to be known as Mark I as its successor machines were built.<br><br>
+Until 1945, &quot;computer&quot; was a job description for a person who performed mathematical operations for large-scale projects. The existence of new machines like Mark I created the need for a word describe them. In 1945, the National Defense Research Committee opted for redefining such new machines as &quot;computers&quot;, and the humans as &quot;operators.&quot;</div>
+</div>
+      
+       <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 highlightedblock"><span style="font-family:courier new,courier,monospace; font-size:14px;">... By &quot;calculator&quot; or &quot;calculating machine&quot; we shall mean a device ... capable of accepting two numbers A and B, and of forming some or any of the combinations <br>A + B, A - B, A x B, A / B.<br><br> By &quot;computer&quot; we shall mean a machine capable of carrying out automatically a succession of operations of this kind and of storing the necessary intermediate results ... Human agents will be referred to as "operators" to distinguish them from &quot;computers&quot; (machines). </span><br><br>
+        <span style="font-size:12px;">George Stibitz, Report for the National Defense Research Committee on Relay Computers (February 1945). </span><br>
+</div>
+        <div class="col-sm-2"></div>
+      </div>
+              <div class="row">
+                <div class="col-sm-4"><a class="fancybox-effects-c" rel="usegallery" href="images/HumanComputers.jpg" title="Until the 1940s, mathematical problems and tables were worked by teams of dozens of human &quot;computers&quot; with mechanical calculating machines. Mathematicians were in charge of turning complex problems into distributed, simple operations for their teams. "><img src="images/HumanComputers.jpg" alt="Click to view full size" class="img-responsive imgborder"/></a><span style="font-weight: 300; font-size: 13px; color: #AAAAAA;">[ <a href="images/HumanComputers.jpg" target="_blank">open image in a new tab</a> ]</span></div>
+                <div class="col-sm-8">Until the 1940s, mathematical problems and tables were worked by teams of dozens of human &quot;computers&quot; with mechanical calculating machines. Mathematicians were in charge of turning complex problems into distributed, simple operations for their teams. <br><br>Image Courtesy of the Library of Congress.</div>
+      </div>
+
+
+<hr>
+              <div class="row">
+        <div class="col-sm-12"><h4>What was it used for?</h4><br><br><b>Mark I worked around the clock on military projects, calculating massive mathematical tables.</b> Principally intended to help the Navy with tables for the design of equipment such as topedos and underwater detection systems, other branches of the military sought its help in tasks as varied as designing surveillance camera lenses, performing radar design calculations, and for implosion calculations required for the Manhattan Project's atomic bomb.<br><br>The mathematical tables that Mark I churned out were the first of their kind: they were printed directly from a machine's output, eliminating all human error. One of the computer's longest running projects required it to solve a set of differential equations called Bessel Functions. As a result, the computer was given the nickname &quot;Bessie.&quot; </div>    
+        </div> 
+ 
+        
+ <div class="row">
+                <div class="col-sm-4"><a class="fancybox-effects-c" rel="usegallery" href="images/MissileTablesYellow.jpg" title="Between 1946 and 195x, these tables, printed directly from Mark I's output, were published in a series of books, the <i>Annals of the Computation Laboratory.</i>  The one show above is from Volume XX: Tables for the Design of Missiles (194x)."><img src="images/MissileTablesYellow.jpg" alt="Click to view full size" class="img-responsive imgborder"/></a><span style="font-weight: 300; font-size: 13px; color: #AAAAAA;">[ <a href="images/MissileTablesYellow.jpg" target="_blank">open image in a new tab</a> ]</span></div>
+                <div class="col-sm-8">Between 1946 and 195x, these tables, printed directly from Mark I's output, were published in a series of books, the <i>Annals of the Computation Laboratory.</i>  The one shown here is from Volume XX: Tables for the Design of Missiles (194x).</div>
+      </div>
+      
+                    <div class="row">
+        <div class="col-sm-12" align="center"><iframe src="//player.vimeo.com/video/78424411" width="95%" height=500 frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/78424411">The Mark I at Harvard - Missile Tables</a></p></div>    
+        </div> 
+              <div class="row">
+        <div class="col-xs-12 footer" align="center"><span style="font-weight: 400; font-size: 13px; color: #FFFFFF">Collection of Historical Scientific Instruments &copy; President and Fellows of Harvard College</span></div>
+         </div>
+            
+
+
+
+      
+      
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
